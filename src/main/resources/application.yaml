@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/matchdb
+    username: pass
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/data.sql
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework: INFO
+      hibernate: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
